@@ -7,25 +7,14 @@ import time
 HOST = "127.0.0.1"
 PORT = 5000
 
-def checksum(dados):
-    """
-    Calcula o checksum dos dados usando MD5
-    """
-    return hashlib.md5(dados.encode()).hexdigest()
-
 def verificar_checksum(pacote):
-    """
-    Verifica se o pacote foi corrompido
-    """
-    return pacote["checksum"] == checksum(pacote["dados"])
+ return pacote["checksum"] == checksum(pacote["dados"])
 
 print("=== SERVIDOR RDT 3.0 (Stop-and-Wait) ===")
 
 # Criação do socket UDP
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((HOST, PORT))
-
-# Número de sequência esperado (0 ou 1)
 sequencia_esperada = 0
 
 while True:
@@ -61,6 +50,5 @@ while True:
     ack = {"ack": sequencia_esperada}
     sock.sendto(json.dumps(ack).encode(), addr)
     print(f"[Servidor] ACK {sequencia_esperada} enviado.")
-
-    # Alterna o número de sequência esperado
     sequencia_esperada = 1 - sequencia_esperada
+
