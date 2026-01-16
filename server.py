@@ -21,19 +21,16 @@ while True:
     print(f"  Sequência: {seq}")
     print(f"  Dados: {dados}")
 
-    # Verifica corrupção
     if is_corrupted(dados, chksum):
         print("[Servidor] ❌ Pacote corrompido. Ignorado.")
         continue  # RDT 3.0 não envia NAK
 
-    # Verifica duplicação
     if seq != sequencia_esperada:
         print("[Servidor] ⚠ Pacote duplicado.")
         ack = f"ACK{1 - sequencia_esperada}"
         sock.sendto(ack.encode(), addr)
         continue
 
-    # Pacote correto
     print("[Servidor] ✅ Pacote entregue à aplicação.")
 
     ack = f"ACK{sequencia_esperada}"
@@ -41,3 +38,4 @@ while True:
     print(f"[Servidor] ACK {sequencia_esperada} enviado.")
 
     sequencia_esperada = 1 - sequencia_esperada
+
