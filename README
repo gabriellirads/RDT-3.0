@@ -7,7 +7,7 @@ Simular falhas como corrupção, atraso e duplicação de pacotes
 Aplicar mecanismos de controle de erros e retransmissão
 Demonstrar, na prática, o funcionamento do modelo Stop-and-Wait
 
-▶️ Instruções de Execução
+ Instruções de Execução
 1. Acessar o diretório do projeto
 Abra o terminal e navegue até a pasta onde o projeto está localizado:
 cd ~/TESTE/rdt3
