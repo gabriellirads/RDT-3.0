@@ -1,0 +1,50 @@
+Implementação do Protocolo RDT 3.0 (Stop-and-Wait) sobre UDP em Python
+
+ Objetivo
+O principal objetivo deste trabalho é implementar e testar um protocolo de transferência confiável de dados sobre um canal não confiável, simulando condições reais de rede. Especificamente, busca-se:
+Implementar o protocolo RDT 3.0 sobre UDP
+Simular falhas como corrupção, atraso e duplicação de pacotes
+Aplicar mecanismos de controle de erros e retransmissão
+Demonstrar, na prática, o funcionamento do modelo Stop-and-Wait
+
+▶️ Instruções de Execução
+1. Acessar o diretório do projeto
+Abra o terminal e navegue até a pasta onde o projeto está localizado:
+cd ~/TESTE/rdt3
+
+Verifique se os arquivos estão presentes:
+ls
+
+Devem existir, no mínimo, os seguintes arquivos:
+client.py
+server.py
+unreliable_channel.py
+utils.py
+
+2. Executar o servidor
+Em um terminal, execute o servidor com o comando:
+python3 server.py
+
+Após a execução, o seguinte texto deve ser exibido:
+=== SERVIDOR RDT 3.0 (Stop-and-Wait) ===
+
+O servidor permanecerá em execução aguardando conexões do cliente.
+
+3. Executar o cliente
+Abra um segundo terminal e acesse novamente o diretório do projeto:
+cd ~/TESTE/rdt3
+python3 client.py
+
+4. Selecionar o modo do canal
+O cliente exibirá um menu com as opções:
+1 - Entrega normal
+2 - Corromper dados
+3 - Inserir atraso
+
+Digite o número correspondente ao modo desejado e pressione Enter.
+
+5. Enviar a mensagem
+
+Após escolher o modo, informe a mensagem a ser enviada quando solicitado.
+O cliente iniciará a transmissão e exibirá mensagens indicando o envio, o recebimento de ACKs ou a ocorrência de timeouts.
+
